@@ -1,115 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CountDown Timer</title>
-    <link rel="stylesheet" href="index.css">
+main{
+    display: flex;
+    flex-flow: row;
+    gap: 2vw;
+    justify-content: center;
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
-</head>
+}
 
-<body>
-       <h1 id="first">We' re Launching Soon</h1>
-    <main class="center" id="timer">
-        <div  class="timeB" style="color: rgb(236, 58, 58);" ><span id="day" class="time">--</span></div>
-        <div class="timeB" ><span id="hour" class="time">--</span></div>
-        <div class="timeB" ><span id="minute" class="time">--</span></div>
-        <div class="timeB" ><span id="second" class="time">--</span></div>
-    </main>
-    <div class="launchInfo"  >
-        <h1 id="launced">Our website launched successfully 🎉🎉🎉🎊  <br>  <a href="https://vansh1190.github.io/about">Go to Website</a>  </h1>
-    </div>
-  
-    <script>
-        if(localStorage.key(0) != "Date"){
-            // console.log("HELLO")
-            localStorage.setItem("Date","Jul 5, 2023 20:00:00")
-        }
-        
-        var LaunchDate = new Date(localStorage.getItem("Date")).getTime();
+#first ,.launchInfo{
+    margin-top: 24vh;
+    margin-bottom: 29px;
+    text-align: center;
+    font-size: 3vw;
+    color: whitesmoke;
+    font-family: 'Orbitron';
 
-        document.getElementById("minute").style.animationPlayState="paused"
-        document.getElementById("hour").style.animationPlayState="paused"
-        document.getElementById("day").style.animationPlayState="paused"
+}
+footer{
+    display: flex;
+    gap: 10vw;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 100px;
+}
+footer img{
+    width: 18px;
+    height: 18px;
+}
+.timeB{
     
-        let timeArrived = false;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #33364e;
+    border: 2px solid black;
+    padding: 5px;
+}
+.time{
+   
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    transition-duration: 1s;
+    font-size: 4vw;
+    color: whitesmoke   ;
+    font-family: 'Orbitron', sans-serif;
+    /* animation: ScaleAnim 1s ease infinite; */
+}
+a{
+    color: rgb(201, 200, 200);
+}
+.launchInfo{
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#launced{
+    display: none;
+}
+.launchInfo h1{
+    text-align: center;
 
-        let loop = setInterval(() => {
-            const date = new Date().getTime()
-            let distance = LaunchDate - date;
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-           
-            if(days < 0 || hours < 0 || minutes < 0 || seconds < 0){
-                document.getElementById("second").style.animation = "none"
-                clearInterval(loop)
-                
-                return
-
-            }
-            
-
-            document.getElementById("second").style.animation = "ScaleAnim 1s ease infinite"
-        
-
-
-            if(minutes != 0 && seconds == 59){
-                timeArrived = true;
-                document.getElementById("minute").style.animation = "ScaleAnim 1s ease"
-                // clearInterval(loop)
-            }
-            if(hours != 0 && minutes == 59 && seconds == 59){
-               
-                timeArrived = true;
-                document.getElementById("hour").style.animation = "ScaleAnim 1s ease"
-                // clearInterval(loop)
-            }
-            if(days != 0 && hours == 59 && minutes == 59 && seconds == 59){
-                timeArrived = true;
-                document.getElementById("day").style.animation = "ScaleAnim 1s ease"
-                // clearInterval(loop)
-            }
-            
-            if(days == 0 && hours == 0 && minutes == 0 && seconds == 0){
-                timeArrived = true;
-                setTimeout(()=>{
-                    document.getElementById("timer").style.display = "none"
-                    document.getElementById("first").style.display = "none"
-
-                },1000)
-                document.getElementById("launced").style.display = "block";
-                document.getElementById("second").innerHTML = "00";
-
-            }          
-            (days == 0) ? days ="00" : null ;
-            (hours == 0) ? hours = "00" : null ;
-            (minutes == 0) ? minutes ="00" :null ;
-            (seconds == 0) ? seconds ="00" : null ;
-                
-                
-               
-               
-            
-            
+}
 
 
-            document.getElementById("second").innerHTML = seconds;
-            document.getElementById("minute").innerHTML = minutes;
-            document.getElementById("hour").innerHTML = hours;
-            document.getElementById("day").innerHTML = days;
-           
+@keyframes ScaleAnim {
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1);
+
+    }
+}
+
+body{
+    display: flex;
+    justify-content: center;
+flex-flow: column;
+background-image: url(images/pattern-hills.svg) , url(images/bg-stars.svg)  ;
+background-color: #0f0d13;  
+background-repeat: no-repeat;
+background-position:  bottom, center;
+background-size: 100vw  7vw , 100% 100%;
+
+height:100vh;
+}
 
 
-
-        },1000)
-    </script>
-</body>
-
-</html>
+@media (width <550px) {
+    #first{
+        font-size: 6vw ;
+    }
+    .time{
+        font-size: 6.4vh;
+    }
+    .timeB{
+        width: 15vw;
+        height: 15vw;
+    }
+    body{
+    background-repeat: no-repeat;
+    background-position:  bottom, center;
+    background-size: 100vw 24vw , 100% 100%;
+    height:97vh;
+    }
+}
