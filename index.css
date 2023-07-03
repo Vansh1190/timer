@@ -3,8 +3,16 @@ main{
     flex-flow: row;
     gap: 2vw;
     justify-content: center;
-   
-        margin-top: 30vh
+    
+}
+
+#first ,.launchInfo{
+    margin-top: 30vh;
+    text-align: center;
+    font-size: 3vw;
+    color: whitesmoke;
+    font-family: 'Orbitron';
+
 }
 .timeB{
     
