@@ -43,16 +43,16 @@ footer img{
     border: 2px solid black;
     padding: 5px;
 }
+.animate__animated.animate__flipInX {
+    --animate-duration: 0.7s;
+  }
+  
+  
 .time{
-    z-index:3;
-    
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    transition-duration: 1s;
     font-size: 4vw;
     color: whitesmoke   ;
     font-family: 'Orbitron', sans-serif;
+    animation-fill-mode:fill;
     /* animation: ScaleAnim 1s ease infinite; */
 }
 a{
@@ -101,11 +101,11 @@ height:100vh;
     #first{
         font-size: 6vw ;
     }
- /*   .time{
-        font-size: 4.5vh;
-    }*/
+    .time{
+        font-size: 6.4vh;
+
+    }
     .timeB{
-        
         width: 15vw;
         height: 15vw;
     }
