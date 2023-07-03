@@ -65,7 +65,8 @@
             }
 
 
-            document.getElementById("second").style.animation = "ScaleAnim 1s ease infinite"
+            document.getElementById("second").style.animation = "ScaleAnim 0.5s ease infinite"
+            document.getElementById("second").style.animationFillMode="both"
             document.getElementById("sec").classList.add("animate__flipInX")
             setTimeout(() => {
                 document.getElementById("sec").classList.remove("animate__flipInX")
@@ -119,7 +120,7 @@
 
 
 
-            document.getElementById("second").innerText = seconds;
+            document.getElementById("second").innerHTML = seconds;
             document.getElementById("minute").innerHTML = minutes;
             document.getElementById("hour").innerHTML = hours;
             document.getElementById("day").innerHTML = days;
