@@ -3,9 +3,11 @@ main{
     flex-flow: row;
     gap: 2vw;
     justify-content: center;
-    margin-top: 10%;
+   
+        margin-top: 30vh
 }
 .timeB{
+    
     height: 15vw;
     width: 12vw;
     border-radius: 15px;
