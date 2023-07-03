@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CountDown Timer</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main class="center" id="timer">
+        <div  class="timeB" style="color: rgb(236, 58, 58);" ><span id="day" class="time">--</span></div>
+        <div class="timeB" ><span id="hour" class="time">--</span></div>
+        <div class="timeB" ><span id="minute" class="time">--</span></div>
+        <div class="timeB" ><span id="second" class="time">--</span></div>
+    </main>
+    <div class="launchInfo" >
+        <h1 id="launced">Our website launched successfully 🎉🎉🎉🎊    <a href="https://vansh1190.github.io/about">Go to Website</a>  </h1>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+         AOS.init();
+        var LaunchDate = new Date("Jul 3, 2023 17:55:00").getTime();
+
+        document.getElementById("minute").style.animationPlayState="paused"
+        document.getElementById("hour").style.animationPlayState="paused"
+        document.getElementById("day").style.animationPlayState="paused"
+    
+        let timeArrived = false;
+
+        let loop = setInterval(() => {
+            const date = new Date().getTime()
+            let distance = LaunchDate - date;
+            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+           
+            if(days < 0 || hours < 0 || minutes < 0 || seconds < 0){
+                document.getElementById("second").style.animation = "none"
+                clearInterval(loop)
+                
+                return
+
+            }
+            
+
+            document.getElementById("second").style.animation = "ScaleAnim 1s ease infinite"
+        
+
+
+            if(minutes != 0 && seconds == 59){
+                timeArrived = true;
+                document.getElementById("minute").style.animation = "ScaleAnim 1s ease"
+                // clearInterval(loop)
+            }
+            if(hours != 0 && minutes == 59 && seconds == 59){
+               
+                timeArrived = true;
+                document.getElementById("hour").style.animation = "ScaleAnim 1s ease"
+                // clearInterval(loop)
+            }
+            if(days != 0 && hours == 59 && minutes == 59 && seconds == 59){
+                timeArrived = true;
+                document.getElementById("day").style.animation = "ScaleAnim 1s ease"
+                // clearInterval(loop)
+            }
+            
+            if(days == 0 && hours == 0 && minutes == 0 && seconds == 0){
+                timeArrived = true;
+                setTimeout(()=>{
+                    document.getElementById("timer").style.display = "none"
+                },1000)
+                document.getElementById("launced").style.display = "block";
+                document.getElementById("second").innerHTML = "00";
+
+            }          
+            (days == 0) ? days ="00" : null ;
+            (hours == 0) ? hours = "00" : null ;
+            (minutes == 0) ? minutes ="00" :null ;
+            (seconds == 0) ? seconds ="00" : null ;
+                
+                
+               
+               
+            
+            
+
+
+            document.getElementById("second").innerHTML = seconds;
+            document.getElementById("minute").innerHTML = minutes;
+            document.getElementById("hour").innerHTML = hours;
+            document.getElementById("day").innerHTML = days;
+           
+
+
+
+        },1000)
+    </script>
+</body>
+
+</html>
