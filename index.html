@@ -6,25 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CountDown Timer</title>
     <link rel="stylesheet" href="index.css">
-  
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+       <h1 id="first">We' re Launching Soon</h1>
     <main class="center" id="timer">
         <div  class="timeB" style="color: rgb(236, 58, 58);" ><span id="day" class="time">--</span></div>
         <div class="timeB" ><span id="hour" class="time">--</span></div>
         <div class="timeB" ><span id="minute" class="time">--</span></div>
         <div class="timeB" ><span id="second" class="time">--</span></div>
     </main>
-    <div class="launchInfo" >
-        <h1 id="launced">Our website launched successfully 🎉🎉🎉🎊    <a href="https://vansh1190.github.io/about">Go to Website</a>  </h1>
+    <div class="launchInfo"  >
+        <h1 id="launced">Our website launched successfully 🎉🎉🎉🎊  <br>  <a href="https://vansh1190.github.io/about">Go to Website</a>  </h1>
     </div>
   
     <script>
-        var LaunchDate = new Date("Jul 3, 2023 19:00:00").getTime();
+        if(localStorage.key(0) != "Date"){
+            // console.log("HELLO")
+            localStorage.setItem("Date","Jul 3, 2023 20:00:00")
+        }
+        
+        var LaunchDate = new Date(localStorage.getItem("Date")).getTime();
 
         document.getElementById("minute").style.animationPlayState="paused"
         document.getElementById("hour").style.animationPlayState="paused"
@@ -75,6 +81,8 @@
                 timeArrived = true;
                 setTimeout(()=>{
                     document.getElementById("timer").style.display = "none"
+                    document.getElementById("first").style.display = "none"
+
                 },1000)
                 document.getElementById("launced").style.display = "block";
                 document.getElementById("second").innerHTML = "00";
