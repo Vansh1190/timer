@@ -48,11 +48,13 @@ footer img{
   }
   
   
-.time{
-    font-size: 4vw;
-    color: whitesmoke   ;
+.flipCard div{
+    font-size: 6vw;
+    /* color: whitesmoke   ; */
     font-family: 'Orbitron', sans-serif;
     animation-fill-mode:fill;
+    background-color: #3e3844;
+
     /* animation: ScaleAnim 1s ease infinite; */
 }
 a{
@@ -69,7 +71,7 @@ a{
 }
 .launchInfo h1{
     text-align: center;
-
+    font-size: larger;
 }
 
 
@@ -88,7 +90,7 @@ body{
     justify-content: center;
 flex-flow: column;
 background-image: url(images/pattern-hills.svg) , url(images/bg-stars.svg)  ;
-background-color: #0f0d13;  
+background-color: #0e0d12;   
 background-repeat: no-repeat;
 background-position:  bottom, center;
 background-size: 100vw  7vw , 100% 100%;
