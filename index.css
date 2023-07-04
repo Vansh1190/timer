@@ -6,6 +6,19 @@ main{
     
 }
 
+#titleTimer{
+    gap: 5vw;
+}
+#titleTimer h1{
+   
+    width: 11vw;
+    text-align: center;
+    margin: 5px 0;
+    color: whitesmoke;
+    font-family: orbitron;
+    font-size: 3vw;
+
+}
 #first ,.launchInfo{
     margin-top: 24vh;
     margin-bottom: 29px;
@@ -27,6 +40,7 @@ footer{
   margin-right: auto; 
   width: 100px;
 }
+
 footer img{
     width: 18px;
     height: 18px;
