@@ -31,8 +31,8 @@ const FlipCardAnim = (i, flipCard) => {
 
 // FlipCardAnim ends here
 
-if (localStorage.key(0) !== 'Date') {
-  localStorage.setItem('Date', 'Jul 18, 2023 00:00:00');
+if (localStorage.key(0) !== 'Sep 8, 2023 00:00:00') {
+  localStorage.setItem('Date', 'Sep 8, 2023 00:00:00');
 }
 
 const LaunchDate = new Date(localStorage.getItem('Date')).getTime();
